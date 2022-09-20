@@ -10,66 +10,7 @@
 
 <body>
 
-    <?php if (isset($_POST) && !empty($_POST)) : ?>
-        <ul>
-            <?php if (isset($_POST['nev']) && !empty($_POST['nev'])) : ?>
-                <li>Név: <?php echo $_POST['nev'] ?> </li>
-            <?php endif; ?>
-
-            <?php if (isset($_POST['email']) && !empty($_POST['email'])) : ?>
-                <li>E-mail: <?php echo $_POST['email'] ?> </li>
-            <?php endif; ?>
-
-            <?php if (isset($_POST['jelszo']) && !empty($_POST['jelszo'])) : ?>
-                <li>Jelszó:
-                    <?php for ($i = 0; $i < strlen($_POST['jelszo']); $i++) {
-                        echo "*";
-                    } ?>
-                </li>
-            <?php endif; ?>
-
-            <?php if (isset($_POST['nem']) && !empty($_POST['nem'])) : ?>
-                <li>Nem:
-                    <?php switch ($_POST['nem']) {
-                        case "ferfi":
-                            echo "Férfi";
-                            break;
-                        case "no":
-                            echo "Nő";
-                            break;
-                        case "egyeb":
-                            echo "Egyéb";
-                            break;
-                    } ?>
-                </li>
-            <?php endif; ?>
-
-            <?php if (isset($_POST['iskola']) && !empty($_POST['iskola'])) : ?>
-                <li>Iskolai végzettség:
-                    <?php switch ($_POST['iskola']) {
-                        case "altalanos":
-                            echo "Általános Iskola";
-                            break;
-                        case "szakmunkas":
-                            echo "Szakmunkás képző";
-                            break;
-                        case "erettsegi":
-                            echo "Érettségi";
-                            break;
-                    } ?>
-                </li>
-            <?php endif; ?>
-
-            <?php if (isset($_POST['feltetelek']) && !empty($_POST['feltetelek'])) : ?>
-                <li>Elfogadta a feltételeket</li>
-            <?php else : ?>
-                <li>Nem fogadta el a feltételeket</li>
-            <?php endif; ?>
-
-        </ul>
-    <?php endif; ?>
-
-    <form action="index.php" method="post">
+    <form action="adatfeldolgozas.php" method="post">
         <label for="nev_input">Név:</label>
         <input type="text" name="nev" id="nev_input" placeholder="Név">
         <br>
@@ -89,6 +30,7 @@
         <br>
         <label for="iskola_input">Iskolai végzettség</label>
         <select name="iskola" id="iskola_input">
+            <option value=""></option>
             <option value="altalanos">Általános Iskola</option>
             <option value="szakmunkas">Szakmunkás képző / szakiskola</option>
             <option value="erettsegi">Érettségi</option>
